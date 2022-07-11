@@ -6,7 +6,7 @@ pipeline {
                 sh '''
                     docker version
                     docker info
-                    docker compose --version
+                    docker-compose --version
                     curl --version
                     jq --version
                 ''' 
@@ -19,8 +19,8 @@ pipeline {
         }
         stage("Start Container") {
             steps {
-                sh 'docker compose up -d --no-color'
-                sh 'docker compose ps'
+                sh 'docker-compose up -d --no-color'
+                sh 'docker-compose ps'
             }
         }
         stage('Run tests againts container') {
@@ -32,8 +32,8 @@ pipeline {
 
     post {
         always {
-            sh 'docker compose down --remove-orphans -v'
-            sh 'docker compose ps'
+            sh 'docker-compose down --remove-orphans -v'
+            sh 'docker-compose ps'
         }
     }
 }
