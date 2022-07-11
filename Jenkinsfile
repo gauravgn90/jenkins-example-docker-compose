@@ -5,6 +5,14 @@ pipeline {
     }
    
     stages {
+        stage("User Name") {
+            steps {
+                sh '''
+                    whoami
+                    groups
+                '''
+            }
+        }
         stage("Verify Tooling") {
             steps {
                 sh '''
