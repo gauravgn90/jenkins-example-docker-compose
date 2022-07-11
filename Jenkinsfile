@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         p = sh 'echo $PATH'
-        PATH = p + ':/usr/local/bin/docker-compose'
+        PATH = p + ":/usr/local/bin/docker-compose"
     }
    
     stages {
