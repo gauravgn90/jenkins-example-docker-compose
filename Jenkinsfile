@@ -1,4 +1,8 @@
 pipeline {
+    environment {
+        p = sh 'echo $PATH'
+        PATH = p + ':/usr/local/bin/docker-compose'
+    }
     agent any
     stages {
         stage("Verify Tooling") {
